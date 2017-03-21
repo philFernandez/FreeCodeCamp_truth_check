@@ -6,7 +6,7 @@ function truthCheck (collection, pre) {
 				return false;
 		}
 		return true;
-	}
+	};
 
 	var propertyType = [];
 	var propertyTruthVal = [];
@@ -16,21 +16,19 @@ function truthCheck (collection, pre) {
 
 	collection.forEach(function(e){
 		propertyType.push(typeof e[pre]);
-		propertyTruthVal.push(e[pre] !== 0);
+		propertyTruthVal.push(e[pre] !== 0 && e[pre] !== "");
 		if (e.hasOwnProperty(pre))
 			counter++;
 
 	});
-	
 
-	if (collection.length === counter && propertyType.isSame() && propertyTruthVal.isSame()) {
+	if (collection.length === counter && 
+		propertyType.isSame() && 
+		propertyTruthVal.isSame()) {
 		return true;
 	}
-
-		
-
 
 	return false;
 }
 
-console.log(truthCheck([{"user": "Tinky-Winky", "sex": "male", "age": 0}, {"user": "Dipsy", "sex": "male", "age": 3}, {"user": "Laa-Laa", "sex": "female", "age": 5}, {"user": "Po", "sex": "female", "age": 4}], "age"));
+console.log(truthCheck([{"phil": "programmer", "dudeson": "check"}, { "dudeson": "yes"}], "phil"))
