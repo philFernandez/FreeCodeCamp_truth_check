@@ -6,6 +6,7 @@ function truthCheck (collection, pre) {
 // 			if (this[i])
 // 		}
 // 	}
+you can add some randome shit here
 
 
 	var trueCount = 0;
