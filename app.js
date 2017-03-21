@@ -11,19 +11,12 @@ function truthCheck (collection, pre) {
 	var propertyType = [];
 	var propertyTruthVal = [];
 
-	var counter = 0;
-
-
 	collection.forEach(function(e){
 		propertyType.push(typeof e[pre]);
 		propertyTruthVal.push(e[pre] !== 0 && e[pre] !== "");
-		if (e.hasOwnProperty(pre))
-			counter++;
-
 	});
 
-	if (collection.length === counter && 
-		propertyType.isSame() && 
+	if (propertyType.isSame() && 
 		propertyTruthVal.isSame()) {
 		return true;
 	}
@@ -31,4 +24,4 @@ function truthCheck (collection, pre) {
 	return false;
 }
 
-console.log(truthCheck([{"phil": "programmer", "dudeson": "check"}, { "dudeson": "yes"}], "phil"))
+console.log(truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex"))
