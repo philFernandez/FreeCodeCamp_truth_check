@@ -15,12 +15,18 @@ function truthCheck (collection, pre) {
 
 	collection.forEach(function(e){
 		propertyType.push(e[pre]);
-		if (e[pre])
+		if (e.hasOwnProperty(pre))
+			counter++;
 	});
 
-	console.log(propertyType.isSame());
+	
 
-	return pre;
+	if (collection.length === counter && propertyType.isSame()) {
+		return true;
+	}
+
+
+	return false;
 }
 
-console.log(truthCheck([{"name": "Pete", "onBoat": true}, {"name": "Repeat", "onBoat": true}, {"name": "FastFoward", "onBoat": null}], "onBoat"));
+console.log(truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex"));
